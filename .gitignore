@@ -11,10 +11,9 @@ logs/
 
 # Environment variables
 .env
-.env.*
 
 # Credential files
-credentials/
+credentials/*
 
 # Build outputs
 dist/
@@ -42,3 +41,6 @@ coverage/
 # Miscellaneous
 *.bak
 *.orig
+
+firebase.json
+.firebaserc

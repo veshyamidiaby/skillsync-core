@@ -30,7 +30,10 @@ import {
 } from "../handlers";
 import { logger } from "../lib/logger";
 
-const pubsub = new PubSub({ projectId: GCP_PROJECT_ID });
+const pubsub = new PubSub({
+  apiEndpoint: process.env.NODE_ENV === "test" ? "localhost:8085" : undefined,
+  projectId: process.env.NODE_ENV === "test" ? "skillsync-local" : GCP_PROJECT_ID,
+});
 
 const initalizeSubscribers = () => {
   logger().info("Initializing subscribers...");
