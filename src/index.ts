@@ -1,7 +1,6 @@
 import express from "express";
 import { APP_HOST, APP_PORT } from "./constants";
-import { initalizeSubscribers, publishMessage } from "./pubsub";
-import { SubscriberTopics } from "./types";
+import { initalizeSubscribers } from "./pubsub";
 import { initTopics } from "./lib/pubsub-init";
 import { logger } from "./lib/logger";
 
@@ -10,16 +9,6 @@ const app = express();
 app.get("/health", (request, response) => {
   logger().info("Health check request received");
   response.status(200).send("OK");
-});
-
-app.post("/test-event", async (req, res) => {
-  await publishMessage(SubscriberTopics.userCreated, {
-    correlationKey: "test-correlation-key",
-    id: "abc123",
-    email: "test@skillsync.ai",
-  });
-
-  res.send("Test event published.");
 });
 
 (async () => {

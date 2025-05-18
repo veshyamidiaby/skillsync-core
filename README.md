@@ -1,5 +1,4 @@
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-
+# ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) [![Docker](https://img.shields.io/badge/docker-ready-blue)](https://www.docker.com/)
 
 ![SkillSync Banner](skillsync-banner.png)
 # skillsync-core
@@ -9,6 +8,7 @@ Primary backend API combining Auth, User Management, RBAC, and Project Managemen
 ---
 
 ## Table of Contents
+- [Docker Support](#docker-support)
 - [Features](#features)
 - [Installation](#installation)
 - [Configuration](#configuration)
@@ -23,6 +23,36 @@ Primary backend API combining Auth, User Management, RBAC, and Project Managemen
 - [Contact](#contact)
 
 ---
+
+## Docker Support
+
+This service is fully containerized and ready to run in Docker.
+
+### Run Locally with Docker Compose
+
+1. Ensure Docker and Docker Compose are installed on your machine.
+2. In the root of the project, build and run containers with:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+This will:
+- Boot the `skillsync-core` backend inside a container
+
+### Ports
+
+- `3000`: `skillsync-core` API
+
+### Notes
+- You can inspect logs using:
+
+  ```bash
+  docker-compose logs -f
+  ```
+
+- The app logs will confirm Pub/Sub topic setup and server boot success.
+
 
 ## Features
 - **Authentication**: Secure user authentication with token-based mechanisms.
